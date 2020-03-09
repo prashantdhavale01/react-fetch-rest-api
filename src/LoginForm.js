@@ -31,7 +31,7 @@ class LoginForm extends Component {
               </div>
               <div className="form-group text-danger d-none font-12" id="errorLogin">UserId-><b>"admin"</b> and password->"<b>password</b>"</div>
               <div className="form-group">
-                <button type="button" onClick={(event) => this.handleClick(event)} className="btn btn-primary float-right">Submit</button>
+                <button type="button" onClick={(event) => this.handleClick(event)} className="btn btn-secondary float-right">Submit</button>
               </div>
             </div>
           </div>
