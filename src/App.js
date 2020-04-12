@@ -12,7 +12,19 @@ class App extends Component {
       console.log(this.state.data)
     })
     .catch(console.log)
-  }  
+  }
+  
+  checkboxEventHandler(e) {
+    if ($('input.checkbox_check').is(':checked')) {
+      $(e.target).parent().parent('tr').parent().append('<tr>'+$(e.target).parent().parent('tr').html()+'</tr>')
+      console.log("Class Click Event Handler")
+    }else{
+      
+    }
+
+}
+
+
   render() {    
     return (
         <div className="col-md-10 offset-md-1 col-12">
@@ -29,6 +41,7 @@ class App extends Component {
             <thead>
               <tr>
                 <th width="4%">No.</th>
+                <th width="2%"><input type="checkbox" className="checkbox_check" /></th>
                 <th width="30%">Name</th>
                 <th width="66%">Description</th>
               </tr>
@@ -36,9 +49,10 @@ class App extends Component {
             <tbody>
               {this.state.data.map((item, i) => (
                 <tr className="card-body" key={i}>
-                  <td width="4%" className="card-title">{item.id}</td>
+                  <td width="4%" className="card-src">{item.id}</td>
+                  <td width="2%" className="card-select" onClick={this.checkboxEventHandler}> <input type="checkbox" className="checkbox_check" />    </td>
                   <td width="30%" className="card-title">{item.title}</td>
-                  <td width="66%" className="card-subtitle mb-2 text-muted">{item.body}</td>
+                  <td width="64%" className="card-subtitle mb-2 text-muted">{item.body}</td>
                 </tr>
               ))}
             </tbody>
